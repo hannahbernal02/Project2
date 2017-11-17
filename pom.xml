@@ -23,7 +23,7 @@
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<java.version>1.8</java.version>
 
-		<egr327db></egr327db>
+
 		<user>root</user>
 		<password>CBU*mySql201</password>
 		<database>egr327db</database>
