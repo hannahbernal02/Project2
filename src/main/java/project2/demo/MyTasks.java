@@ -53,7 +53,7 @@ public class MyTasks {
         Vehicle updatedVehicle = restTemplate.getForObject("http://localhost:8080/getVehicle/" + randId, Vehicle.class);
         if (updatedVehicle != null) {
             restTemplate.put(url, new Vehicle(randId, "UPDATED Vehicle", 99999, 123456), Vehicle.class);
-            System.out.println("New updated vehicle: " + updatedVehicle);
+            System.out.println("Newly updated vehicle: " + updatedVehicle);
         }
     }
 
