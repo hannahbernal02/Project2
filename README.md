@@ -32,8 +32,32 @@ public class Vehicle implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
 ```
 which is used in the *VehicleDao* class.
-The table name is also defined with @Table to ensure the program is connected with the same MySQL database table 
+The table name *vehicles* is also defined with @Table to ensure the program is connected with the same MySQL database table that will be created within the MySQL program.
+
 ### VehicleDao
+The Vehicle Dao is an object that allows access for the request methods described in the Controller class to the MySQL database.
+The class used the ORM (Object Relational-Mapping) to represent the data from the database with Vehicle objects.
+Here's an example in how these methods work:
+```java
+public List<Vehicle> getVehicleList() {
+
+//            List<Vehicle> retrievedList = entityManager.createQuery( "from Vehicle", Vehicle.class).getResultList();
+//            List<Vehicle> latestVehicles = new ArrayList<>();
+//            int limit = 9;
+//            if(retrievedList.size() - 1 < limit) {
+//               limit = retrievedList.size() - 1;
+//            }
+//            for (int i = 0; i <= limit; i++) {
+//                latestVehicles.add(retrievedList.get(retrievedList.size()-1-i));
+//            }
+            List <Vehicle> retrievedList = entityManager.createNativeQuery("Select * from vehicles ORDER BY id DESC LIMIT 10",
+                    Vehicle.class).getResultList();
+            return retrievedList;
+        }
+```
+There are two alternative ways to access the database:
+1. Create a list that retrieves every Vehicle object in the database and then loop to retrieve it to another list that will be returned until the defined limit.
+2. Create a native query that uses the SQL command *select * from vehicles order desc limit 10* to get at most ten Vehicles from data
 
 ### Controller
 This class consists of RestControllers which uses HTTP requests to access and return data from the database
