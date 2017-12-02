@@ -83,3 +83,5 @@ The corresponding MySQL table, named *vehicles*, would look like this:
 | Id | makeAndModel | year | retailPrice |
 | -- | ------------ | ---- | ----------- |
 | 0  | KIA          | 2014 | 123456.0    |
+
+## Retrieving Data with Advanced REST Client
