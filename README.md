@@ -1,7 +1,7 @@
 # EGR327 REST API Project with MySQL
 
 This project is a part of my Software Construction Course. Using REST API, Spring Services, and a SQL database, it is then deployed through the Google Cloud Platform.
-Platform services to get, add, update, and delete vehicles from the created vehicle inventory.
+Platform services to get, add, update, and delete vehicles from the created vehicle inventory (using the basics functions of CRUD).
 
 The project relies on the DAO (Data Access Object) which allows the Java code of the project interact with the SQL database with persist and merge methods for corresponding HTTP requests.
 
@@ -101,7 +101,10 @@ The corresponding MySQL table, named *vehicles*, would look like this if Vehicle
 | -- | ------------ | ---- | ----------- |
 | 0  | KIA          | 2014 | 123456.0    |
 
-## Retrieving Data with Advanced REST Client
+The whole database can be viewed through the installation of the MySQL Workbench program, which is run through the local computer's command line. For testing purposes, the SQL table can be modified or accessed through the command line outside the program using typical SQL commands (e.g. select, insert, update, delete).
+
+## Retrieving Data with External Tools
+Once the project had been deployed with the Google Cloud Platform, a SQL database was established within the Cloud. There, the user can access or modify the data within the table using REST clients such as Advanced REST Client (ARC), which is avaiable as a Chrome application. There, the user can either use the local host address that is defined within the program or use the url that is given from the Google App Engine. The user can then define the data they want modified through the payload.
 
 **
-Overall, this project assignment has shown me how Java, along with the Spring Framework, can be applied to transfer data into a. It has equipped me with the knowledge to collect data from the client and store it into a flexible and easily accessible database system. Utilizing this REST API for any Java program or large-scale services is greatly beneficial as it helps both clients and developers retrieve and update the data needed.
+Overall, this project assignment has shown me how Java, along with the Spring Framework, can be applied to transfer data into a. It has equipped me with the knowledge to collect data from the client and store it into a flexible and easily accessible database system. Utilizing this REST API for any Java program or large-scale services is greatly beneficial as it helps both clients and developers retrieve and update the data needed, also preserving encapsulation of the rest of the data.
