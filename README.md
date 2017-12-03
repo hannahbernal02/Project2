@@ -60,7 +60,7 @@ There are two alternative ways to access the database:
 2. Create a native query that uses the SQL command *select * from vehicles order desc limit 10* to get at most ten Vehicles from data
 
 ### Controller
-This class consists of RestControllers which uses HTTP requests to access and return data from the database
+This class consists of RestControllers which uses HTTP requests to access and return data from the database with VehicleDao.
 An example of one of these methods:
 ```java
 @RequestMapping(value = "/getVehicle/{id}", method = RequestMethod.GET)
@@ -69,19 +69,39 @@ An example of one of these methods:
         return vehicleDao.getById(id);
     }
 ```
-
+This method uses calls and returns vehicleDao's getById method as shown here:
+```java
+ public Vehicle getById(int id) {
+            return entityManager.find(Vehicle.class, id);
+        }
+```
+which uses the entityManager to access and find the Vehicle object in the database by the given id. Since the Vehicle's information is in a JSON format, the entityMangaer makes it into a Vehicle with Vehicle.class.
 
 ### MyTasks
 This consists of the client-side code which executes HTTP requests at certain times presented as Cron expressions.
-Here is an example on how I implemented these tasks:
-
-Using the RestTemplate, 
+Here is an example on how these tasks were implemented:
+```java
+@Scheduled (cron="*/5 * * * * *")
+    public void addNewVehicle() {
+        String url = "http://localhost:8080/addVehicle";
+        rand = new Random();
+        String alphabet = "abcdefghijklmnopqrstuvwxyz";
+        randModel = alphabet.charAt(rand.nextInt(alphabet.length())) + "";
+        int randYear = rand.nextInt(31) + 1986;
+        int randPrice = rand.nextInt(30001) + 15000;
+        restTemplate.postForObject(url, new Vehicle(id++, randModel, randYear, randPrice), Vehicle.class);
+    }
+```
+According to the Cron expression, addNewVehicle will be executed every 5 seconds. Each task uses a HTTP request with the RestTemplate which runs the url of a specified Controller method. Here, addNewVehicle uses the POST request via addVehicle from the Controller class to add a Vehicle object with randomized data. The new object created is translated from Vehicle type to the JSON format.
 
 ## MySQL Database
-The corresponding MySQL table, named *vehicles*, would look like this:
+The corresponding MySQL table, named *vehicles*, would look like this if Vehicle of id 0, makeAndModel KIA, year 2014, and retailPrice 123456.0 was entered into the database:
 
 | Id | makeAndModel | year | retailPrice |
 | -- | ------------ | ---- | ----------- |
 | 0  | KIA          | 2014 | 123456.0    |
 
 ## Retrieving Data with Advanced REST Client
+
+**
+Overall, this project assignement has showed me how Java, along with the Spring Framework, can be applied to transfer data into a. It has equipped me with the knowledge to collect data from the client and store it into a flexible and easily accessible database system.
