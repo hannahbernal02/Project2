@@ -104,4 +104,4 @@ The corresponding MySQL table, named *vehicles*, would look like this if Vehicle
 ## Retrieving Data with Advanced REST Client
 
 **
-Overall, this project assignement has showed me how Java, along with the Spring Framework, can be applied to transfer data into a. It has equipped me with the knowledge to collect data from the client and store it into a flexible and easily accessible database system.
+Overall, this project assignment has shown me how Java, along with the Spring Framework, can be applied to transfer data into a. It has equipped me with the knowledge to collect data from the client and store it into a flexible and easily accessible database system. Utilizing this REST API for any Java program or large-scale services is greatly beneficial as it helps both clients and developers retrieve and update the data needed.
