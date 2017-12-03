@@ -106,5 +106,5 @@ The whole database can be viewed through the installation of the MySQL Workbench
 ## Retrieving Data with External Tools
 Once the project had been deployed with the Google Cloud Platform, a SQL database was established within the Cloud. There, the user can access or modify the data within the table using REST clients such as Advanced REST Client (ARC), which is avaiable as a Chrome application. There, the user can either use the local host address that is defined within the program or use the url that is given from the Google App Engine. The user can then define the data they want modified through the payload.
 
-**
+---
 Overall, this project assignment has shown me how Java, along with the Spring Framework, can be applied to transfer data into a. It has equipped me with the knowledge to collect data from the client and store it into a flexible and easily accessible database system. Utilizing this REST API for any Java program or large-scale services is greatly beneficial as it helps both clients and developers retrieve and update the data needed, also preserving encapsulation of the rest of the code and data.
